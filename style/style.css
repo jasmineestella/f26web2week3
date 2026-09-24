@@ -52,3 +52,71 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+/******************
+    MAIN STYLES
+******************/
+/*AI-prompt: for each of the header, nav, main and footer. add a 2px black border with a 
+light gray background. 10px of padding on all sides and using flexbox, center 
+the content horizontally and vertically*/
+header,
+nav,
+main,
+footer {
+    border: 2px solid #000;
+    background-color: #e6e6e6;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/********************
+       SKIPLINKS    
+********************/
+/*first thing is to hide the skiplinks off screen. This is done by positioning them absolute and 
+moving them off screen with a negative top value*/
+
+
+.skiplinks a{
+    position: absolute;
+    top: -1000px;
+    left: 0;
+}
+
+.skiplinks a:focus {
+    top: 0;
+    z-index: 1000;
+}
+
+/***********************
+    MOBILE STYLES
+************************/
+
+.container {
+    display: grid;
+}
+
+/*******************
+    MEDIA QUERIES
+********************/
+@media screen (min-width: 768px) {
+    /*at the larger size use a grid map to create a specific layout*/
+    .container {
+        grid-template-areas: 
+            "h h h"
+            "n m m"
+            "f f f";
+        
+    }
+
+    header {
+        grid-area: h;
+    }
+    nav {
+        grid-area: n;
+    }
+    main {
+        grid-area: m;
+    }
+    footer {
+        grid-area: f;
+    }

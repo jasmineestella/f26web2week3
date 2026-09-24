@@ -4,9 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Accessibility and Other Stuff Week 3</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style/style.css">
 </head>
 <body>
-    
+    <div class="container">
+        <nav class="skiplinks">
+            <!-- skip links are designed to be the first thing the user tabs to if they
+             are using a keyboard to navigate your site. the link text should always start with
+             "skip to"-->
+            <ul>
+                <li><a href="#mainnav">Skip to Navigation</a></li>
+                <li><a href="#maincont">Skip to Main Content</a></li>
+                <li><a href="#">Skip to Sidebar</a></li>
+                <li><a href="#">Skip to Footer</a></li>
+            </ul>
+        </nav>
+        <header>week 3 accessibility</header>
+        <nav id="mainnav">nav</nav>
+        
+        <main id="maincont">
+            
+            <section>
+                <!-- use ARIA to tell accessibility tools which element
+                 is a label for the image and which is a decription
+                 for the image-->
+                <img aria-labelledby="tortoise-lettuce" 
+                aria-describedby="tortoise-eating"
+                src="images/tortoise.jpg" alt="tortoise">
+                <h3 id="tortoise-lettuce">tortoise</h3>
+                <p id="tortoise-eating">stuff about tortoises</p>
+            </section>
+            <!-- to use schema you have to define the scope (which element contains all the information) and the schema that 
+             you are using (i.e. person, event, organization) if you decide to use schema
+             go to schema.org to see what schemas and properties are available -->
+            <section itemscope itemtype="http://schema.org/Event">
+                <h3>Career Fair</h3>
+                <!-- use itemprop to define specific pieces of information within the schema -->
+                <article>
+                    <h4 itemprop="name">Career Fair</h4>
+                    <p><span itemprop="startdate">Career Fair is on October 30 2026</span></p>
+                </article>
+            </section>
+        </main>
+        <footer>footer</footer>
+    </div>
 </body>
 </html>
